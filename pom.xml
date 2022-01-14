@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.chatapp-gateway</groupId>
-	<artifactId>gateway</artifactId>
+	<artifactId>gateway-chatapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gateway</name>
+	<name>gateway-chatapp</name>
 	<description></description>
 	<properties>
 		<java.version>11</java.version>
