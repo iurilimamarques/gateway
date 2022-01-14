@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-exception: false
+
+spring:
+  application:
+    name: gateway
+
+zuul:
+  prefix: /chat-app/api
+  ignoredServices: '*'
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  sensitiveHeaders: Cookie, Set-Cookie
+  host:
+    connect-timeout-millis: 300000
+    socket-timeout-millis: 300000
+
+  routes:
+    auth:
+      path: /auth/**
+      url: http://localhost:8081/auth
+    chat:
+      path: /chat/**
+      url: http://localhost:8082/chat
+
+ribbon:
+  eureka:
+    enabled: false
