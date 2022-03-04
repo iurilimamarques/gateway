@@ -49,7 +49,7 @@ public class AuthorizationFilter extends ZuulFilter {
                 RestTemplate restTemplate = new RestTemplate();
                 JwtValidation response = restTemplate.getForObject(URL_JWT_VALIDATION, JwtValidation.class);
                 if (response.getStatus().equals("JWT_NOT_VALID")) {
-                    throw new ZuulException(response.getMessage(), 500, "");
+                    throw new ZuulException(response.getMessage(), 500, "JWT_NOT_VALID");
                 }
             }
         } catch (ZuulException e) {
