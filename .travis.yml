@@ -4,6 +4,6 @@ jdk:
 dist: trusty
 deploy:
   provider: heroku
-  api_key:
+  api-key:
     secure: $HEROKU_API_KEY
   app: gateway-chatapp
