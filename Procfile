@@ -1,1 +1,1 @@
-web: mvn spring-boot:run -Dspring.profiles.active=$ENVIRONMENT
+web: java -jar target/gateway-chatapp-0.0.1-SNAPSHOT.jar
