@@ -44,7 +44,7 @@ public class AuthorizationFilter extends ZuulFilter {
                 throw new ZuulException("No authorization token provided", 500, "");
             } else {
                 String jwtToken = authorization.replace("Bearer ", "");
-                String URL_JWT_VALIDATION = "http://localhost:8081/auth/jwt-validation/validate-token/" + jwtToken;
+                String URL_JWT_VALIDATION = "https://auth-chatapp.herokuapp.com/auth/jwt-validation/validate-token/" + jwtToken;
 
                 RestTemplate restTemplate = new RestTemplate();
                 JwtValidation response = restTemplate.getForObject(URL_JWT_VALIDATION, JwtValidation.class);
