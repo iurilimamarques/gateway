@@ -4,6 +4,7 @@ import com.chatappgateway.gateway.dto.JwtValidation;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class AuthorizationFilter extends ZuulFilter {
+
+    @Value("${zuul.routes.auth.url}")
+    private String authServerUrl;
 
     @Override
     public String filterType() {
@@ -44,7 +48,7 @@ public class AuthorizationFilter extends ZuulFilter {
                 throw new ZuulException("No authorization token provided", 500, "");
             } else {
                 String jwtToken = authorization.replace("Bearer ", "");
-                String URL_JWT_VALIDATION = "https://auth-chatapp.herokuapp.com/auth/jwt-validation/validate-token/" + jwtToken;
+                String URL_JWT_VALIDATION = authServerUrl + "/jwt-validation/validate-token/" + jwtToken;
 
                 RestTemplate restTemplate = new RestTemplate();
                 JwtValidation response = restTemplate.getForObject(URL_JWT_VALIDATION, JwtValidation.class);

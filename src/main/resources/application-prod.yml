@@ -23,7 +23,7 @@ zuul:
       url: https://auth-chatapp.herokuapp.com/auth
     chat:
       path: /chat/**
-      url: https://api-chatapp-project.herokuapp.com//chat
+      url: https://api-chatapp-project.herokuapp.com/chat
 
 ribbon:
   eureka:
