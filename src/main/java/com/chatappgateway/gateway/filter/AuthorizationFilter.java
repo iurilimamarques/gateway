@@ -38,7 +38,8 @@ public class AuthorizationFilter extends ZuulFilter {
 
         if (request.getRequestURL().toString().contains("/chat-app/api/auth/signin") ||
                 request.getRequestURL().toString().contains("/chat-app/api/auth/signup") ||
-                request.getRequestURL().toString().contains("/chat-app/api/auth/validate")) {
+                request.getRequestURL().toString().contains("/chat-app/api/auth/validate") ||
+                request.getRequestURL().toString().contains("/chat-app/api/auth/signout")) {
             return null;
         }
 
