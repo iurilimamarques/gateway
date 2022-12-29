@@ -12,4 +12,4 @@ RUN ./mvnw package
 
 FROM eclipse-temurin:11 as production
 COPY --from=build /app/target/gateway-chatapp-*.jar /gateway-chatapp.jar
-CMD ["java", "-jar", "-Dspring.profiles.active=$ENVIRONMENT","/gateway-chatapp.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=${ENVIRONMENT}","/gateway-chatapp.jar"]
