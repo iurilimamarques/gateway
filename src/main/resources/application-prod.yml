@@ -20,10 +20,10 @@ zuul:
   routes:
     auth:
       path: /auth/**
-      url: https://auth-chatapp.herokuapp.com/auth
+      url: ${AUTH_CHATAPP_PATH}
     chat:
       path: /chat/**
-      url: https://api-chatapp-project.herokuapp.com/chat
+      url: ${API_CHATAPP_PATH}
 
 ribbon:
   eureka:
