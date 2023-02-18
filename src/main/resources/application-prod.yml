@@ -28,3 +28,8 @@ zuul:
 ribbon:
   eureka:
     enabled: false
+
+logging:
+  level:
+    root: debug
+debug: true
