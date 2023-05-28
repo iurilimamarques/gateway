@@ -2,6 +2,10 @@ FROM amazoncorretto:11-alpine as base
 
 WORKDIR /app
 
+ARG ENVIRONMENT
+ARG API_CHATAPP_PATH
+ARG AUTH_CHATAPP_PATH 
+
 COPY .mvn/ ./.mvn
 COPY mvnw pom.xml ./
 RUN ./mvnw dependency:resolve
