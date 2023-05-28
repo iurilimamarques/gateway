@@ -15,7 +15,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  call-workflow-2-in-local-repo:
+  call-docker-image-workflow:
     uses: ./.github/workflows/docker-image.yml
   build:
     runs-on: ubuntu-latest
