@@ -55,7 +55,5 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          build-args: 
-            ENVIRONMENT=${{ vars.ENVIRONMENT }}, API_CHATAPP_PATH=${{ vars.API_CHATAPP_PATH }}, AUTH_CHATAPP_PATH=${{ vars.AUTH_CHATAPP_PATH }}
           push: true
           tags: iurilima/gateway-chatapp:latest
