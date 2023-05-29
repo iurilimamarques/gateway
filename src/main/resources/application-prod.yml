@@ -1,8 +1,5 @@
 server:
   port: 8080
-  error:
-    include-message: always
-    include-exception: false
 
 spring:
   application:
@@ -28,8 +25,3 @@ zuul:
 ribbon:
   eureka:
     enabled: false
-
-logging:
-  level:
-    root: debug
-debug: true
