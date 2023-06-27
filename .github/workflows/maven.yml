@@ -68,22 +68,22 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: $AWS_ACCESS_KEY_ID
-          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.MY_AWS_REGION }}
         
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ env.MY_ECS_TASK_DEFINITION }}
-          container-name: ${{ env.MY_ECS_TASK_DEFINITION }}
+          task-definition: ${{ vars.MY_ECS_TASK_DEFINITION }}
+          container-name: ${{ vars.MY_ECS_TASK_DEFINITION }}
           image: iurilima/gateway-chatapp:latest
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ${{ env.MY_ECS_SERVICE }}
-          cluster: ${{ env.MY_ECS_CLUSTER }}
+          service: ${{ vars.MY_ECS_SERVICE }}
+          cluster: ${{ vars.MY_ECS_CLUSTER }}
           wait-for-service-stability: true
