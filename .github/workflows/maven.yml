@@ -77,7 +77,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ vars.MY_ECS_TASK_DEFINITION }}
-          container-name: ${{ vars.MY_ECS_TASK_DEFINITION }}
+          container-name: gateway-chatapp-dockerhub
           image: iurilima/gateway-chatapp:latest
 
       - name: Deploy Amazon ECS task definition
