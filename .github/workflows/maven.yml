@@ -57,6 +57,9 @@ jobs:
           file: Dockerfile
           push: true
           tags: iurilima/gateway-chatapp:latest
+          build-args: 
+            API_CHATAPP_PATH=${{ vars.API_CHATAPP_PATH }}
+            AUTH_CHATAPP_PATH=${{ vars.AUTH_CHATAPP_PATH }}
 
   deploy:
     runs-on: ubuntu-latest
